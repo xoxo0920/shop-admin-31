@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-   Hello
-    Hello
-    Hello
-    <el-button type="danger" plain>危险按钮</el-button>
+  <div>
+
+  <router-view></router-view>
+
+   
   </div>
 </template>
 
@@ -11,10 +11,29 @@
 
 
 export default {
- 
-}
+    
+    
+
+  }
 </script>
 
 <style>
+   *{
+   margin:0;
+   padding:0;
+ }
 
+ ul,li,ol{
+   list-style: none;
+ }
+
+ a{
+   color:#333;
+ }
+
+ /* 类似于span */
+ i,em{
+   font-style: normal;
+ }
 </style>
+
