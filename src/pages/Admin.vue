@@ -1,5 +1,6 @@
 <template>
-    <el-container>
+  <el-container>
+
       <el-aside width="auto">
         <Menu :isShow="isShow"/>
           <!-- aside -->
@@ -10,10 +11,12 @@
           </el-header>
         <el-main>
           <Mianbao/>
-          Main
+          
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
+    
 </template>
 
 <script>
@@ -23,7 +26,6 @@ import Header from "../components/Header.vue"
 import Mianbao from "../components/Mianbao.vue"
 //引入左边菜单栏组件
 import Menu from "../components/Menu.vue"
-
 export default {
     data(){
       return{
@@ -61,8 +63,8 @@ export default {
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
-    line-height: 160px;
+    /* text-align: center; */
+    /* line-height: 160px; */
   }
   /* 重新修改高 */
    body > div >.el-container {

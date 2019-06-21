@@ -45,9 +45,8 @@
           uname:this.form.username,
           upwd:this.form.password
         }
-       console.log(data)
-        // 验证表单
-          // this.$refs.form.validate((valid) => {
+      //  console.log(data)
+        // 验证表单,如果验证不通过不提交表单
           this.$refs.form.validate((valid)=> {
             //验证通过
             if(valid){
@@ -58,15 +57,22 @@
                  //处理跨域
                  withCredentials: true
                 }).then(res=>{
-                  console.log(res)
+                  // console.log(res)
                   //解构赋值
-                  const {message,status} = res.data
+                  const {message,status} = res.data;
+                  // console.log(message)
+
+                  //$store下的方法commit是设置仓库的数据
+                  //commit方法是调用仓库中mutations方法，第一个参数是方法
+                  //第二个参数就是传递的数据对象
+                  this.$store.commit("setUser",message)
+
                   //登录成功
                   if(status === 0){
-                    this.$router.push("/")
+                    this.$router.push("/");
                   }
                   if(status === 1){
-                    this.$message.error(message)
+                    this.$message.error(message);
                   }
                 })
             }
